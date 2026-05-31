@@ -5,10 +5,30 @@
         "app/(terminal)/dashboard/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
+        },
+        "app/(terminal)/emerging/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/hidden-gems/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/unicorns/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/time-machine/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
         }
       },
       "layer": {
-        "app/(terminal)/dashboard/page": "rsc"
+        "app/(terminal)/dashboard/page": "rsc",
+        "app/(terminal)/emerging/page": "rsc",
+        "app/(terminal)/hidden-gems/page": "rsc",
+        "app/(terminal)/unicorns/page": "rsc",
+        "app/(terminal)/time-machine/page": "rsc"
       },
       "filename": "actions/startups.ts",
       "exportedName": "getSignals"
@@ -18,10 +38,30 @@
         "app/(terminal)/dashboard/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
+        },
+        "app/(terminal)/emerging/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/hidden-gems/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/unicorns/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/time-machine/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
         }
       },
       "layer": {
-        "app/(terminal)/dashboard/page": "rsc"
+        "app/(terminal)/dashboard/page": "rsc",
+        "app/(terminal)/emerging/page": "rsc",
+        "app/(terminal)/hidden-gems/page": "rsc",
+        "app/(terminal)/unicorns/page": "rsc",
+        "app/(terminal)/time-machine/page": "rsc"
       },
       "filename": "actions/startups.ts",
       "exportedName": "getStartups"
@@ -31,10 +71,30 @@
         "app/(terminal)/dashboard/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
+        },
+        "app/(terminal)/emerging/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/hidden-gems/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/unicorns/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/time-machine/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
         }
       },
       "layer": {
-        "app/(terminal)/dashboard/page": "rsc"
+        "app/(terminal)/dashboard/page": "rsc",
+        "app/(terminal)/emerging/page": "rsc",
+        "app/(terminal)/hidden-gems/page": "rsc",
+        "app/(terminal)/unicorns/page": "rsc",
+        "app/(terminal)/time-machine/page": "rsc"
       },
       "filename": "actions/startups.ts",
       "exportedName": "toggleSaveStartup"
@@ -44,10 +104,30 @@
         "app/(terminal)/dashboard/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
+        },
+        "app/(terminal)/emerging/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/hidden-gems/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/unicorns/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/time-machine/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
         }
       },
       "layer": {
-        "app/(terminal)/dashboard/page": "rsc"
+        "app/(terminal)/dashboard/page": "rsc",
+        "app/(terminal)/emerging/page": "rsc",
+        "app/(terminal)/hidden-gems/page": "rsc",
+        "app/(terminal)/unicorns/page": "rsc",
+        "app/(terminal)/time-machine/page": "rsc"
       },
       "filename": "actions/startups.ts",
       "exportedName": "searchStartups"
@@ -57,10 +137,30 @@
         "app/(terminal)/dashboard/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
+        },
+        "app/(terminal)/emerging/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/hidden-gems/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/unicorns/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(terminal)/time-machine/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fabhishek%2FPrograms%2FSignalSeed%2Fsrc%2Factions%2Fstartups.ts%22%2C%5B%7B%22id%22%3A%2200871df267676feb63f9bff0a6579a8bf1d62d2a14%22%2C%22exportedName%22%3A%22getSignals%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2200a08e70d12c089ecb1ef0832ae1919def4a6e8830%22%2C%22exportedName%22%3A%22getStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240317673d65cf94e2353b0f5fd180c604d1bbfb0c3%22%2C%22exportedName%22%3A%22toggleSaveStartup%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%22404dde3e469886c5cb606d914608598535ea731093%22%2C%22exportedName%22%3A%22searchStartups%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%2C%7B%22id%22%3A%2240f8f2f106e2eb25be5375b4a9baebf042e1979962%22%2C%22exportedName%22%3A%22getStartupById%22%2C%22filename%22%3A%22actions%2Fstartups.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
         }
       },
       "layer": {
-        "app/(terminal)/dashboard/page": "rsc"
+        "app/(terminal)/dashboard/page": "rsc",
+        "app/(terminal)/emerging/page": "rsc",
+        "app/(terminal)/hidden-gems/page": "rsc",
+        "app/(terminal)/unicorns/page": "rsc",
+        "app/(terminal)/time-machine/page": "rsc"
       },
       "filename": "actions/startups.ts",
       "exportedName": "getStartupById"

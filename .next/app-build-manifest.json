@@ -20,6 +20,26 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(terminal)/dashboard/page.js"
+    ],
+    "/(terminal)/emerging/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(terminal)/emerging/page.js"
+    ],
+    "/(terminal)/hidden-gems/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(terminal)/hidden-gems/page.js"
+    ],
+    "/(terminal)/unicorns/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(terminal)/unicorns/page.js"
+    ],
+    "/(terminal)/time-machine/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(terminal)/time-machine/page.js"
     ]
   }
 }

@@ -1,1 +1,0 @@
-{"c":["app/layout","app/(terminal)/dashboard/page","webpack"],"r":[],"m":["(app-pages-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/action-client-wrapper.js","(app-pages-browser)/./node_modules/recharts/es6/chart/BarChart.js","(app-pages-browser)/./src/actions/startups.ts","(app-pages-browser)/./src/components/acceleration-chart.tsx"]}

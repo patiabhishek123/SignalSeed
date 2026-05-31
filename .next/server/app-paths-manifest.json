@@ -1,3 +1,8 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/(terminal)/dashboard/page": "app/(terminal)/dashboard/page.js",
+  "/(terminal)/hidden-gems/page": "app/(terminal)/hidden-gems/page.js",
+  "/(terminal)/emerging/page": "app/(terminal)/emerging/page.js",
+  "/(terminal)/unicorns/page": "app/(terminal)/unicorns/page.js",
+  "/(terminal)/time-machine/page": "app/(terminal)/time-machine/page.js"
 }
