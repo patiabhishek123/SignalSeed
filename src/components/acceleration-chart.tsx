@@ -28,7 +28,7 @@ export default function AccelerationChart() {
 
   if (!mounted) {
     return (
-      <div className="w-full h-[280px] bg-[#111317]/50 rounded-lg animate-pulse flex items-end gap-2 p-4 border-l border-b border-[#3c4a42]/30 min-h-[280px]">
+      <div className="w-full h-[280px] bg-surface-container-low rounded-sm animate-pulse flex items-end gap-2 p-4 border-l border-b border-graphite-stroke min-h-[280px]">
         <div className="flex-1 h-[85%] bg-primary/20 border-t-2 border-primary rounded-t-sm"></div>
         <div className="flex-1 h-[62%] bg-primary/20 border-t-2 border-primary rounded-t-sm"></div>
         <div className="flex-1 h-[45%] bg-primary/20 border-t-2 border-primary rounded-t-sm"></div>
@@ -48,7 +48,7 @@ export default function AccelerationChart() {
           data={data}
           margin={{ top: 15, right: 10, left: -25, bottom: 0 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#1c1e22" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
           <XAxis 
             dataKey="city" 
             stroke="#bbcabf" 
@@ -65,13 +65,13 @@ export default function AccelerationChart() {
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: "#111317",
-              borderColor: "#3c4a42",
-              borderRadius: "4px",
-              color: "#e2e2e6",
+              backgroundColor: "#1c1b1b",
+              borderColor: "#2a2a2a",
+              borderRadius: "2px",
+              color: "#e5e2e1",
               fontFamily: "JetBrains Mono, monospace"
             }}
-            cursor={{ fill: "#1e2023", opacity: 0.3 }}
+            cursor={{ fill: "#201f1f", opacity: 0.5 }}
           />
           <Bar dataKey="velocity" name="Velocity Index" radius={[2, 2, 0, 0]}>
             {data.map((entry, index) => {

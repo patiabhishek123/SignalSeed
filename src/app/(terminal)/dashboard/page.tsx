@@ -17,11 +17,11 @@ export default async function DashboardPage({ searchParams }: PageProps) {
     <div className="flex flex-col gap-6">
       {/* Search Header Info */}
       {query && (
-        <div className="bg-[#1A1C1F] border border-[#3c4a42]/30 px-4 py-2 rounded-lg flex items-center justify-between">
-          <span className="font-mono text-xs text-[#bbcabf]">
+        <div className="bg-surface-container-low border border-graphite-stroke px-4 py-2 rounded-sm flex items-center justify-between">
+          <span className="font-mono text-xs text-on-surface-variant">
             FILTERED BY SEARCH QUERY: <span className="text-primary font-bold">"{query}"</span>
           </span>
-          <span className="font-mono text-[10px] text-[#bbcabf]/50">
+          <span className="font-mono text-[10px] text-on-surface-variant/50">
             FOUND {startups.length} RESULTS
           </span>
         </div>

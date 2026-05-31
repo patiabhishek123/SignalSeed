@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 interface HeaderProps {
   isFallback?: boolean;
@@ -21,7 +22,7 @@ export default function Header({ isFallback = false }: HeaderProps) {
   const filterRef = useRef<HTMLDivElement>(null);
   const userRef = useRef<HTMLDivElement>(null);
 
-  // Selected filters (layout structure placeholder)
+  // Selected filters
   const [selectedSector, setSelectedSector] = useState("All Sectors");
   const [selectedStage, setSelectedStage] = useState("All Stages");
   const [selectedValuation, setSelectedValuation] = useState("All Valuations");
@@ -69,27 +70,37 @@ export default function Header({ isFallback = false }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0B0D10]/80 backdrop-blur-md border-b border-[#3c4a42]/30">
+    <header className="sticky top-0 z-40 w-full bg-surface-container-lowest/80 backdrop-blur-md border-b border-graphite-stroke">
       {/* Fallback mock banner */}
       {isFallback && (
-        <div className="bg-[#ee9800]/10 border-b border-[#ffb95f]/30 px-6 py-1 text-center flex justify-center items-center gap-2">
-          <span className="material-symbols-outlined text-[#ffb95f] text-xs">warning</span>
-          <span className="font-mono text-[10px] text-[#ffb95f] uppercase tracking-wider">
+        <div className="bg-error-container/10 border-b border-error/20 px-6 py-1 text-center flex justify-center items-center gap-2">
+          <span className="material-symbols-outlined text-error text-xs">warning</span>
+          <span className="font-mono text-[10px] text-error uppercase tracking-wider">
             Mock Offline Sandbox — database not configured, terminal running in-memory
           </span>
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 h-auto md:h-16 px-6 py-3 md:py-0 w-full">
-        {/* Left Side: Search & Global Filters */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-1">
+      {/* Main TopNavBar: Persistent 48px height (h-12) */}
+      <div className="flex items-center justify-between h-12 px-6 w-full">
+        {/* Left Side: Breadcrumbs & Search */}
+        <div className="flex items-center gap-4 flex-1">
+          {/* Breadcrumbs */}
+          <div className="hidden md:flex items-center gap-1.5 font-mono text-[10px] text-on-surface-variant/60">
+            <span className="hover:text-primary cursor-pointer transition-colors uppercase">SIGNAL</span>
+            <span className="text-[8px] text-graphite-stroke">/</span>
+            <span className="text-on-surface-variant font-semibold uppercase">TERMINAL</span>
+          </div>
+
+          <span className="hidden md:inline text-[12px] text-graphite-stroke font-light">|</span>
+
           {/* Search */}
           <form onSubmit={handleSearchSubmit} className="relative w-full max-w-xs group">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[#bbcabf] text-sm">
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/40 text-xs">
               search
             </span>
             <input
-              className="w-full bg-[#0C0E11] border border-[#3c4a42]/30 hover:border-primary/50 focus:border-primary focus:ring-0 rounded pl-9 pr-4 py-1.5 font-mono text-[11px] text-[#e2e2e6] focus:outline-none transition-all placeholder-[#bbcabf]/30 uppercase"
+              className="w-full bg-surface-container-lowest border border-graphite-stroke hover:border-primary/50 focus:border-primary focus:ring-0 rounded-sm pl-8 pr-4 py-1 font-mono text-[10px] text-on-surface focus:outline-none transition-all placeholder-on-surface-variant/30 uppercase"
               placeholder="SEARCH VENTURES..."
               type="text"
               value={searchValue}
@@ -98,19 +109,19 @@ export default function Header({ isFallback = false }: HeaderProps) {
           </form>
 
           {/* Global Filters */}
-          <div ref={filterRef} className="flex flex-wrap items-center gap-2">
+          <div ref={filterRef} className="hidden lg:flex items-center gap-1.5 ml-2">
             {/* Sector Dropdown */}
             <div className="relative">
               <button
                 type="button"
                 onClick={() => toggleFilter("sector")}
-                className="font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 bg-[#111317] hover:bg-[#1E2023] border border-[#3c4a42]/30 text-[#bbcabf] rounded flex items-center gap-1.5 transition-colors"
+                className="font-mono text-[9px] uppercase tracking-wider px-2 py-1 bg-surface-container-low hover:bg-surface-container-high border border-graphite-stroke text-on-surface-variant rounded-sm flex items-center gap-1 transition-colors"
               >
                 <span>SECTOR: {selectedSector}</span>
-                <span className="material-symbols-outlined text-xs">arrow_drop_down</span>
+                <span className="material-symbols-outlined text-[10px]">arrow_drop_down</span>
               </button>
               {activeFilter === "sector" && (
-                <div className="absolute left-0 mt-1.5 w-40 bg-[#111317] border border-[#3c4a42]/60 rounded shadow-xl overflow-hidden z-50 py-1 font-mono text-[10px]">
+                <div className="absolute left-0 mt-1 w-36 bg-surface-container-low border border-graphite-stroke rounded-sm shadow-xl overflow-hidden z-50 py-0.5 font-mono text-[9px]">
                   {["All Sectors", "AI Infra", "Cloud", "Synthetic Bio", "CleanTech", "DevTools"].map((sec) => (
                     <button
                       key={sec}
@@ -119,7 +130,7 @@ export default function Header({ isFallback = false }: HeaderProps) {
                         setSelectedSector(sec);
                         setActiveFilter(null);
                       }}
-                      className="w-full text-left px-3 py-1.5 text-[#bbcabf] hover:text-white hover:bg-[#1E2023] transition-colors"
+                      className="w-full text-left px-2 py-1 text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"
                     >
                       {sec.toUpperCase()}
                     </button>
@@ -133,13 +144,13 @@ export default function Header({ isFallback = false }: HeaderProps) {
               <button
                 type="button"
                 onClick={() => toggleFilter("stage")}
-                className="font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 bg-[#111317] hover:bg-[#1E2023] border border-[#3c4a42]/30 text-[#bbcabf] rounded flex items-center gap-1.5 transition-colors"
+                className="font-mono text-[9px] uppercase tracking-wider px-2 py-1 bg-surface-container-low hover:bg-surface-container-high border border-graphite-stroke text-on-surface-variant rounded-sm flex items-center gap-1 transition-colors"
               >
                 <span>STAGE: {selectedStage}</span>
-                <span className="material-symbols-outlined text-xs">arrow_drop_down</span>
+                <span className="material-symbols-outlined text-[10px]">arrow_drop_down</span>
               </button>
               {activeFilter === "stage" && (
-                <div className="absolute left-0 mt-1.5 w-40 bg-[#111317] border border-[#3c4a42]/60 rounded shadow-xl overflow-hidden z-50 py-1 font-mono text-[10px]">
+                <div className="absolute left-0 mt-1 w-36 bg-surface-container-low border border-graphite-stroke rounded-sm shadow-xl overflow-hidden z-50 py-0.5 font-mono text-[9px]">
                   {["All Stages", "Seed", "Series A", "Series B"].map((stg) => (
                     <button
                       key={stg}
@@ -148,7 +159,7 @@ export default function Header({ isFallback = false }: HeaderProps) {
                         setSelectedStage(stg);
                         setActiveFilter(null);
                       }}
-                      className="w-full text-left px-3 py-1.5 text-[#bbcabf] hover:text-white hover:bg-[#1E2023] transition-colors"
+                      className="w-full text-left px-2 py-1 text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"
                     >
                       {stg.toUpperCase()}
                     </button>
@@ -162,13 +173,13 @@ export default function Header({ isFallback = false }: HeaderProps) {
               <button
                 type="button"
                 onClick={() => toggleFilter("val")}
-                className="font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 bg-[#111317] hover:bg-[#1E2023] border border-[#3c4a42]/30 text-[#bbcabf] rounded flex items-center gap-1.5 transition-colors"
+                className="font-mono text-[9px] uppercase tracking-wider px-2 py-1 bg-surface-container-low hover:bg-surface-container-high border border-graphite-stroke text-on-surface-variant rounded-sm flex items-center gap-1 transition-colors"
               >
-                <span>VALUATION: {selectedValuation}</span>
-                <span className="material-symbols-outlined text-xs">arrow_drop_down</span>
+                <span>VAL: {selectedValuation}</span>
+                <span className="material-symbols-outlined text-[10px]">arrow_drop_down</span>
               </button>
               {activeFilter === "val" && (
-                <div className="absolute left-0 mt-1.5 w-40 bg-[#111317] border border-[#3c4a42]/60 rounded shadow-xl overflow-hidden z-50 py-1 font-mono text-[10px]">
+                <div className="absolute left-0 mt-1 w-36 bg-surface-container-low border border-graphite-stroke rounded-sm shadow-xl overflow-hidden z-50 py-0.5 font-mono text-[9px]">
                   {["All Valuations", "< $10M", "$10M - $50M", "> $50M"].map((v) => (
                     <button
                       key={v}
@@ -177,7 +188,7 @@ export default function Header({ isFallback = false }: HeaderProps) {
                         setSelectedValuation(v);
                         setActiveFilter(null);
                       }}
-                      className="w-full text-left px-3 py-1.5 text-[#bbcabf] hover:text-white hover:bg-[#1E2023] transition-colors"
+                      className="w-full text-left px-2 py-1 text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"
                     >
                       {v.toUpperCase()}
                     </button>
@@ -189,16 +200,16 @@ export default function Header({ isFallback = false }: HeaderProps) {
         </div>
 
         {/* Right Side: Status Indicators, Clock & User Menu */}
-        <div className="flex items-center justify-between sm:justify-end gap-6 border-t md:border-t-0 border-[#3c4a42]/10 pt-3 md:pt-0">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5 px-3 py-1 bg-[#1A1C1F] rounded border border-[#3c4a42]/30">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-surface-container-low rounded-sm border border-graphite-stroke">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
-              <span className="font-mono text-[10px] text-primary uppercase tracking-wider">
+              <span className="font-mono text-[9px] text-primary uppercase tracking-wider">
                 Live Terminal
               </span>
             </div>
 
-            <span className="hidden sm:inline font-mono text-[10px] text-[#bbcabf]/70">
+            <span className="hidden sm:inline font-mono text-[9px] text-on-surface-variant/60">
               {time}
             </span>
           </div>
@@ -207,34 +218,34 @@ export default function Header({ isFallback = false }: HeaderProps) {
           <div ref={userRef} className="relative">
             <button
               onClick={() => setUserMenuOpen((prev) => !prev)}
-              className="flex items-center gap-2 bg-[#111317] hover:bg-[#1E2023] border border-[#3c4a42]/30 p-1 pr-3 rounded-full transition-all focus:outline-none"
+              className="flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container-high border border-graphite-stroke p-0.5 pr-2 rounded-full transition-all focus:outline-none"
             >
-              <div className="w-7 h-7 rounded-full bg-[#333538] flex items-center justify-center border border-[#3c4a42]/40 overflow-hidden shrink-0">
+              <div className="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center border border-graphite-stroke overflow-hidden shrink-0">
                 <img
                   alt="Investor Profile"
                   className="w-full h-full object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjgnffLqCRMm2pAxDspegT7s-kU91LMh2XabpEk0v1kp_knVNlY6jef8XOXvEBAJZS-N3wfhkWTwIzv1oTwAq3472OA-omRTC9SvQ2oAA3O9YevNFY4UBH05a8f0q9XbdmLNx6DGswdbxIJvDnu7LHhnW0W9KkXuA6x_Or3T6J4Nkg5iLfUOJgNrxMUS10a91mTG1-1a4D6ArJ2X0RPR5WdrGbnU08DYIFaFyXRf0a_3F1epgoR04LcDkZYOurJ7rLZCZxrNccpg"
                 />
               </div>
-              <span className="font-mono text-[10px] font-bold text-[#e2e2e6] hidden md:inline uppercase tracking-wider">
+              <span className="font-mono text-[9px] font-bold text-on-surface hidden md:inline uppercase tracking-wider">
                 Abhishek P.
               </span>
-              <span className="material-symbols-outlined text-[#bbcabf] text-xs">arrow_drop_down</span>
+              <span className="material-symbols-outlined text-on-surface-variant text-[10px]">arrow_drop_down</span>
             </button>
 
             {userMenuOpen && (
-              <div className="absolute right-0 mt-2 w-52 bg-[#111317] border border-[#3c4a42]/60 rounded-lg shadow-2xl overflow-hidden z-50 py-2">
-                <div className="px-4 py-2 border-b border-[#3c4a42]/20">
-                  <p className="font-sans text-xs font-bold text-white leading-tight">Abhishek Pati</p>
-                  <p className="font-mono text-[9px] text-[#bbcabf]/50 uppercase tracking-widest mt-0.5">
+              <div className="absolute right-0 mt-1 w-44 bg-surface-container-low border border-graphite-stroke rounded-sm shadow-2xl overflow-hidden z-50 py-1">
+                <div className="px-3 py-1.5 border-b border-graphite-stroke/30">
+                  <p className="font-sans text-[11px] font-bold text-white leading-tight">Abhishek Pati</p>
+                  <p className="font-mono text-[8px] text-on-surface-variant/50 uppercase tracking-widest mt-0.5">
                     Principal Analyst
                   </p>
                 </div>
-                <div className="py-1 font-mono text-[10px]">
+                <div className="py-0.5 font-mono text-[9px]">
                   <Link
                     href="/profile"
                     onClick={() => setUserMenuOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-[#bbcabf] hover:text-white hover:bg-[#1E2023] transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"
                   >
                     <span className="material-symbols-outlined text-xs">person</span>
                     <span>PROFILE SETTINGS</span>
@@ -242,24 +253,24 @@ export default function Header({ isFallback = false }: HeaderProps) {
                   <Link
                     href="/preferences"
                     onClick={() => setUserMenuOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-[#bbcabf] hover:text-white hover:bg-[#1E2023] transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"
                   >
                     <span className="material-symbols-outlined text-xs">tune</span>
-                    <span>TERMINAL PREFERENCES</span>
+                    <span>PREFERENCES</span>
                   </Link>
                   <Link
                     href="/api-keys"
                     onClick={() => setUserMenuOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-[#bbcabf] hover:text-white hover:bg-[#1E2023] transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"
                   >
                     <span className="material-symbols-outlined text-xs">key</span>
                     <span>API GATEWAY KEYS</span>
                   </Link>
                 </div>
-                <div className="border-t border-[#3c4a42]/20 mt-1 pt-1 font-mono text-[10px]">
+                <div className="border-t border-graphite-stroke/30 mt-0.5 pt-0.5 font-mono text-[9px]">
                   <button
                     onClick={() => setUserMenuOpen(false)}
-                    className="w-full flex items-center gap-2 px-4 py-2 text-[#ffb3ad] hover:text-white hover:bg-[#ef4444]/10 transition-colors text-left"
+                    className="w-full flex items-center gap-1.5 px-3 py-1.5 text-error hover:text-white hover:bg-error-container/20 transition-colors text-left"
                   >
                     <span className="material-symbols-outlined text-xs">logout</span>
                     <span>TERMINATE SESSION</span>

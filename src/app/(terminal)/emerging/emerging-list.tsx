@@ -103,15 +103,15 @@ export default function EmergingList({ initialStartups }: EmergingListProps) {
   return (
     <div className="flex flex-col gap-6">
       {/* Sector Filter Tabs */}
-      <div className="flex flex-wrap gap-2 pb-2 border-b border-[#3c4a42]/20">
+      <div className="flex flex-wrap gap-2 pb-2 border-b border-graphite-stroke/40">
         {sectors.map((sec) => (
           <button
             key={sec}
             onClick={() => setSelectedSector(sec)}
-            className={`font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded transition-colors ${
+            className={`font-mono text-[9px] uppercase tracking-wider px-3 py-1 rounded-sm transition-colors ${
               selectedSector === sec
                 ? "bg-primary text-black font-bold"
-                : "bg-[#111317] border border-[#3c4a42]/30 text-[#bbcabf] hover:text-white"
+                : "bg-surface-container-low border border-graphite-stroke text-on-surface-variant hover:text-white"
             }`}
           >
             {sec}
@@ -124,7 +124,7 @@ export default function EmergingList({ initialStartups }: EmergingListProps) {
         {displayedStartups.map((startup) => (
           <div
             key={startup.id}
-            className="glass-card rounded-xl p-5 flex flex-col justify-between gap-4 border border-[#3c4a42]/30 hover:border-primary/50 transition-all shadow-md group relative overflow-hidden"
+            className="bg-surface-container-low rounded-sm p-5 flex flex-col justify-between gap-4 border border-graphite-stroke hover:border-primary/50 transition-all shadow-none group relative overflow-hidden"
           >
             <div className="flex justify-between items-start">
               <div>
@@ -137,17 +137,17 @@ export default function EmergingList({ initialStartups }: EmergingListProps) {
                 >
                   {startup.name}
                 </Link>
-                <span className="font-mono text-[9px] text-[#bbcabf]/50 uppercase mt-0.5 block">
+                <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase mt-0.5 block">
                   {startup.stage} | {startup.location}
                 </span>
               </div>
 
               <button
                 onClick={(e) => handleToggleSave(startup.id, e)}
-                className={`w-7 h-7 rounded border flex items-center justify-center transition-colors ${
+                className={`w-7 h-7 rounded-sm border flex items-center justify-center transition-colors ${
                   startup.saved
                     ? "bg-primary/20 border-primary text-primary"
-                    : "border-[#3c4a42]/40 text-[#bbcabf]/40 hover:text-white"
+                    : "border-graphite-stroke/60 text-on-surface-variant/40 hover:text-white"
                 }`}
               >
                 <span
@@ -159,37 +159,37 @@ export default function EmergingList({ initialStartups }: EmergingListProps) {
               </button>
             </div>
 
-            <p className="font-sans text-xs text-[#bbcabf]/70 leading-relaxed line-clamp-3">
+            <p className="font-sans text-xs text-on-surface-variant/70 leading-relaxed line-clamp-3">
               {startup.description}
             </p>
 
             {/* Signal metrics summary */}
-            <div className="grid grid-cols-3 gap-2 bg-[#0C0E11] p-3 rounded border border-[#3c4a42]/10 font-mono text-[10px]">
+            <div className="grid grid-cols-3 gap-2 bg-surface-container-lowest p-3 rounded-sm border border-graphite-stroke/40 font-mono text-[10px]">
               <div className="text-center">
-                <span className="text-[#bbcabf]/40 block text-[8px] uppercase">Stars</span>
+                <span className="text-on-surface-variant/40 block text-[8px] uppercase">Stars</span>
                 <span className="text-white font-bold">{startup.githubStars}</span>
               </div>
-              <div className="text-center border-x border-[#3c4a42]/10">
-                <span className="text-[#bbcabf]/40 block text-[8px] uppercase">HN Mentions</span>
+              <div className="text-center border-x border-graphite-stroke/40">
+                <span className="text-on-surface-variant/40 block text-[8px] uppercase">HN Mentions</span>
                 <span className="text-white font-bold">{startup.hnMentionsWk}/Wk</span>
               </div>
               <div className="text-center">
-                <span className="text-[#bbcabf]/40 block text-[8px] uppercase">Score</span>
+                <span className="text-on-surface-variant/40 block text-[8px] uppercase">Score</span>
                 <span className="text-primary font-bold">{startup.momentumScore.toFixed(1)}</span>
               </div>
             </div>
 
             {/* Recent top signal tag */}
             {startup.signals.length > 0 && (
-              <div className="flex items-center gap-2 text-[9px] font-mono text-primary bg-[#10b981]/5 px-2 py-1 rounded border border-[#4edea3]/20">
+              <div className="flex items-center gap-2 text-[9px] font-mono text-primary bg-primary/5 px-2 py-1 rounded-sm border border-primary/25">
                 <span className="material-symbols-outlined text-xs">
                   {getSourceIcon(startup.signals[0].source)}
                 </span>
-                <span className="truncate uppercase font-bold">{startup.signals[0].title}</span>
+                <span className="truncate uppercase font-bold text-[8px]">{startup.signals[0].title}</span>
               </div>
             )}
 
-            <div className="flex justify-between items-center pt-2 border-t border-[#3c4a42]/10 mt-1 font-mono text-[9px] text-[#bbcabf]/40">
+            <div className="flex justify-between items-center pt-2 border-t border-graphite-stroke/40 mt-1 font-mono text-[9px] text-on-surface-variant/40">
               <span>VALUATION: ${startup.valuation}M</span>
               <Link href={`/startup/${startup.id}`} className="text-primary hover:underline uppercase">
                 Analyze →
@@ -200,7 +200,7 @@ export default function EmergingList({ initialStartups }: EmergingListProps) {
 
         {displayedStartups.length === 0 && (
           <div className="col-span-full py-16 text-center">
-            <span className="font-mono text-xs text-[#bbcabf]/30 uppercase">
+            <span className="font-mono text-xs text-on-surface-variant/30 uppercase">
               No emerging entities found for sector: {selectedSector}
             </span>
           </div>

@@ -93,20 +93,20 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
       <div className="flex justify-between items-center">
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-2 font-mono text-[10px] text-[#bbcabf] hover:text-white uppercase tracking-wider"
+          className="inline-flex items-center gap-2 font-mono text-[10px] text-on-surface-variant/75 hover:text-white uppercase tracking-wider"
         >
           <span className="material-symbols-outlined text-xs">arrow_back</span>
           <span>Return to Dashboard</span>
         </Link>
-        <span className="font-mono text-[10px] text-[#bbcabf]/40">
+        <span className="font-mono text-[10px] text-on-surface-variant/40">
           ID: {startup.id}
         </span>
       </div>
 
       {/* Entity Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#3c4a42]/30">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-graphite-stroke">
         <div className="flex items-center gap-6">
-          <div className="w-20 h-20 glass-card rounded-xl flex items-center justify-center p-3 text-primary bg-[#111317]">
+          <div className="w-20 h-20 bg-surface-container-low border border-graphite-stroke rounded-sm flex items-center justify-center p-3 text-primary">
             {startup.logoUrl ? (
               <img
                 alt={`${startup.name} logo`}
@@ -122,11 +122,11 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
               <h1 className="font-sans text-3xl font-extrabold text-white tracking-tight">
                 {startup.name}
               </h1>
-              <span className="bg-primary/10 text-primary px-2.5 py-0.5 rounded text-[10px] font-mono border border-primary/20 uppercase tracking-widest font-bold">
+              <span className="bg-primary/10 text-primary px-2.5 py-0.5 rounded-sm text-[10px] font-mono border border-primary/20 uppercase tracking-widest font-bold">
                 {startup.stage}
               </span>
             </div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[#bbcabf] font-mono text-[10px] uppercase tracking-wider">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-on-surface-variant font-mono text-[10px] uppercase tracking-wider">
               <span className="flex items-center gap-1">
                 <span className="material-symbols-outlined text-sm">location_on</span>
                 {startup.location}
@@ -147,10 +147,10 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
         <div className="flex gap-3">
           <button
             onClick={handleToggleSave}
-            className={`px-5 py-2 border font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center gap-2 ${
+            className={`px-5 py-2 border font-mono text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2 ${
               startup.saved
                 ? "bg-primary/10 border-primary text-primary"
-                : "border-[#3c4a42]/60 hover:bg-[#1E2023]/60 text-white"
+                : "border-graphite-stroke hover:bg-surface-container-high text-white"
             }`}
           >
             <span
@@ -163,7 +163,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
           </button>
           <button
             onClick={() => setIsInquiryOpen(true)}
-            className="px-5 py-2 bg-primary-container text-black font-mono text-xs font-bold uppercase tracking-wider rounded hover:brightness-110 transition-all"
+            className="px-5 py-2 bg-primary-container text-black font-mono text-xs font-bold uppercase tracking-wider rounded-sm hover:brightness-110 transition-all"
           >
             Inquire Allocation
           </button>
@@ -175,20 +175,20 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
         {/* Left Column: Thesis & Timeline */}
         <div className="col-span-12 lg:col-span-8 flex flex-col gap-8">
           {/* AI Investment Thesis */}
-          <section className="glass-card p-6 rounded-xl flex flex-col gap-4">
-            <div className="flex items-center justify-between border-b border-[#3c4a42]/20 pb-3">
+          <section className="bg-surface-container-low border border-graphite-stroke p-6 rounded-sm flex flex-col gap-4">
+            <div className="flex items-center justify-between border-b border-graphite-stroke/40 pb-3">
               <h2 className="font-sans text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary text-lg">psychology</span>
                 <span>AI Generated Investment Thesis</span>
               </h2>
-              <span className="text-[9px] font-mono text-[#bbcabf]/50">UPDATED 14H AGO</span>
+              <span className="text-[9px] font-mono text-on-surface-variant/50">UPDATED 14H AGO</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex flex-col gap-2">
                 <h3 className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold">
                   Core Hypothesis
                 </h3>
-                <p className="text-xs text-[#bbcabf]/80 leading-relaxed">
+                <p className="text-xs text-on-surface-variant/80 leading-relaxed">
                   Decoupling centralized cloud services. Custom compute network optimization yields higher density for local inference ML deployment pipelines.
                 </p>
               </div>
@@ -196,7 +196,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
                 <h3 className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold">
                   Defensibility
                 </h3>
-                <p className="text-xs text-[#bbcabf]/80 leading-relaxed">
+                <p className="text-xs text-on-surface-variant/80 leading-relaxed">
                   Proprietary node orchestration engine. Zero-knowledge verification protocols create strong moats and data validation checkpoints.
                 </p>
               </div>
@@ -204,7 +204,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
                 <h3 className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold">
                   Market Timing
                 </h3>
-                <p className="text-xs text-[#bbcabf]/80 leading-relaxed">
+                <p className="text-xs text-on-surface-variant/80 leading-relaxed">
                   Massive supply constraints in central data hubs, combined with exponential developer interest, creates a perfect seed allocation window.
                 </p>
               </div>
@@ -212,21 +212,21 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
           </section>
 
           {/* Growth Signal Timeline (Chart) */}
-          <section className="glass-card p-6 rounded-xl flex flex-col gap-4">
+          <section className="bg-surface-container-low border border-graphite-stroke p-6 rounded-sm flex flex-col gap-4">
             <div className="flex justify-between items-center mb-2">
               <div>
                 <h2 className="font-sans text-sm font-bold text-white uppercase tracking-wider">
                   Growth Signal Timeline
                 </h2>
-                <p className="text-[9px] font-mono text-[#bbcabf]/40 uppercase tracking-widest mt-1">
+                <p className="text-[9px] font-mono text-on-surface-variant/40 uppercase tracking-widest mt-1">
                   CROSS-PLATFORM MOMENTUM AGGREGATION
                 </p>
               </div>
               <div className="flex gap-2">
-                <button className="bg-[#1E2023] hover:text-white px-2 py-0.5 rounded font-mono text-[9px] text-[#bbcabf]">
+                <button className="bg-surface-container-high hover:text-white px-2 py-0.5 rounded-sm font-mono text-[9px] text-on-surface-variant">
                   6M
                 </button>
-                <button className="bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 rounded font-mono text-[9px]">
+                <button className="bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 rounded-sm font-mono text-[9px]">
                   YTD
                 </button>
               </div>
@@ -238,7 +238,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
           </section>
 
           {/* Activity / Signals Log */}
-          <section className="bg-[#111317] border border-[#3c4a42]/30 p-6 rounded-xl flex flex-col gap-4">
+          <section className="bg-surface-container-low border border-graphite-stroke p-6 rounded-sm flex flex-col gap-4">
             <h2 className="font-sans text-sm font-bold text-white uppercase tracking-wider">
               Recent Activity & Trigger Vectors
             </h2>
@@ -246,7 +246,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
               {startup.signals.map((sig) => (
                 <div
                   key={sig.id}
-                  className="flex items-start gap-4 p-3 bg-[#1A1C1F] border border-[#3c4a42]/10 rounded"
+                  className="flex items-start gap-4 p-3 bg-surface-container-lowest border border-graphite-stroke/40 rounded-sm"
                 >
                   <span className="material-symbols-outlined text-primary text-base mt-0.5">
                     notifications_active
@@ -256,11 +256,11 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
                       <span className="font-mono text-[10px] text-white uppercase font-bold tracking-wider">
                         {sig.title}
                       </span>
-                      <span className="font-mono text-[9px] text-[#bbcabf]/40">
+                      <span className="font-mono text-[9px] text-on-surface-variant/40">
                         {new Date(sig.timestamp).toLocaleDateString()}
                       </span>
                     </div>
-                    <p className="text-xs text-[#bbcabf]/70 leading-relaxed">
+                    <p className="text-xs text-on-surface-variant/70 leading-relaxed">
                       {sig.description}
                     </p>
                   </div>
@@ -268,7 +268,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
               ))}
               {startup.signals.length === 0 && (
                 <div className="text-center py-6">
-                  <span className="font-mono text-[10px] text-[#bbcabf]/30 uppercase">
+                  <span className="font-mono text-[10px] text-on-surface-variant/30 uppercase">
                     No activity logs recorded for this entity
                   </span>
                 </div>
@@ -280,25 +280,25 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
         {/* Right Column: Company Snapshot Sidebar */}
         <aside className="col-span-12 lg:col-span-4 flex flex-col gap-6">
           {/* Company Snapshot */}
-          <section className="glass-card p-5 rounded-xl flex flex-col gap-4">
-            <h2 className="font-mono text-[9px] text-[#bbcabf]/60 uppercase tracking-widest font-bold border-b border-[#3c4a42]/20 pb-2">
+          <section className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex flex-col gap-4">
+            <h2 className="font-mono text-[9px] text-on-surface-variant/60 uppercase tracking-widest font-bold border-b border-graphite-stroke/40 pb-2">
               Company Snapshot
             </h2>
             <div className="flex flex-col gap-3">
-              <div className="flex justify-between items-center p-3 bg-[#0C0E11] rounded border border-[#3c4a42]/20">
-                <span className="text-xs text-[#bbcabf]/70">Post-Money Valuation</span>
+              <div className="flex justify-between items-center p-3 bg-surface-container-lowest rounded-sm border border-graphite-stroke/40">
+                <span className="text-xs text-on-surface-variant/70">Post-Money Valuation</span>
                 <span className="font-mono text-sm font-extrabold text-primary">
                   ${startup.valuation.toFixed(1)}M
                 </span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-[#0C0E11] rounded border border-[#3c4a42]/20">
-                <span className="text-xs text-[#bbcabf]/70">Total Funding Raised</span>
+              <div className="flex justify-between items-center p-3 bg-surface-container-lowest rounded-sm border border-graphite-stroke/40">
+                <span className="text-xs text-on-surface-variant/70">Total Funding Raised</span>
                 <span className="font-mono text-sm font-extrabold text-white">
                   ${startup.funding.toFixed(1)}M
                 </span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-[#0C0E11] rounded border border-[#3c4a42]/20">
-                <span className="text-xs text-[#bbcabf]/70">Website Anchor</span>
+              <div className="flex justify-between items-center p-3 bg-surface-container-lowest rounded-sm border border-graphite-stroke/40">
+                <span className="text-xs text-on-surface-variant/70">Website Anchor</span>
                 <a
                   href={startup.website}
                   target="_blank"
@@ -312,13 +312,13 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
 
             {/* Founding Team */}
             <div className="space-y-3 pt-2">
-              <span className="text-[9px] font-mono text-[#bbcabf]/50 uppercase tracking-widest">
+              <span className="text-[9px] font-mono text-on-surface-variant/50 uppercase tracking-widest">
                 Founding Team
               </span>
               <div className="flex flex-col gap-3">
                 {startup.founders.map((founder, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#1e2023] border border-[#3c4a42]/30 overflow-hidden flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-surface-container-high border border-graphite-stroke/40 overflow-hidden flex items-center justify-center">
                       {founder.avatar ? (
                         <img
                           alt={founder.name}
@@ -331,7 +331,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
                     </div>
                     <div>
                       <p className="text-xs text-white font-bold">{founder.name}</p>
-                      <p className="text-[9px] text-[#bbcabf]/60 font-mono uppercase">
+                      <p className="text-[9px] text-on-surface-variant/60 font-mono uppercase">
                         {founder.title}
                       </p>
                     </div>
@@ -342,18 +342,18 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
           </section>
 
           {/* Ecosystem Overlaps */}
-          <section className="glass-card p-5 rounded-xl flex flex-col gap-3">
-            <h2 className="font-mono text-[9px] text-[#bbcabf]/60 uppercase tracking-widest font-bold border-b border-[#3c4a42]/20 pb-2">
+          <section className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex flex-col gap-3">
+            <h2 className="font-mono text-[9px] text-on-surface-variant/60 uppercase tracking-widest font-bold border-b border-graphite-stroke/40 pb-2">
               Ecosystem Overlap
             </h2>
             <div className="flex flex-wrap gap-2">
-              <span className="bg-[#1A1C1F] text-[#bbcabf] px-2 py-0.5 rounded text-[9px] font-mono border border-[#3c4a42]/30 uppercase">
+              <span className="bg-surface-container-lowest text-on-surface-variant px-2 py-0.5 rounded-sm text-[9px] font-mono border border-graphite-stroke/40 uppercase">
                 A16Z portfolio
               </span>
-              <span className="bg-[#1A1C1F] text-[#bbcabf] px-2 py-0.5 rounded text-[9px] font-mono border border-[#3c4a42]/30 uppercase">
+              <span className="bg-surface-container-lowest text-on-surface-variant px-2 py-0.5 rounded-sm text-[9px] font-mono border border-graphite-stroke/40 uppercase">
                 Nvidia inception
               </span>
-              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-[9px] font-mono border border-primary/20 uppercase tracking-wider font-bold">
+              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-sm text-[9px] font-mono border border-primary/20 uppercase tracking-wider font-bold">
                 Y-Combinator alum
               </span>
             </div>
@@ -361,9 +361,9 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
 
           {/* Security Audit */}
           {startup.riskAssessment && (
-            <section className="glass-card p-5 rounded-xl flex flex-col gap-4">
+            <section className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex flex-col gap-4">
               <div className="flex justify-between items-center">
-                <h2 className="font-mono text-[9px] text-[#bbcabf]/60 uppercase tracking-widest font-bold">
+                <h2 className="font-mono text-[9px] text-on-surface-variant/60 uppercase tracking-widest font-bold">
                   Security Assessment
                 </h2>
                 <span className="material-symbols-outlined text-primary text-sm">verified_user</span>
@@ -371,17 +371,17 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
               <div className="space-y-3">
                 <div>
                   <div className="flex justify-between mb-1 text-[9px] font-mono">
-                    <span className="text-[#bbcabf]/70 uppercase">Protocol Robustness</span>
+                    <span className="text-on-surface-variant/70 uppercase">Protocol Robustness</span>
                     <span className="text-primary font-bold">{startup.riskAssessment.protocolRobustness}%</span>
                   </div>
-                  <div className="w-full bg-[#1A1C1F] h-1 rounded-full overflow-hidden">
+                  <div className="w-full bg-surface-container-lowest h-1 rounded-sm overflow-hidden">
                     <div
                       className="bg-primary h-full transition-all duration-500"
                       style={{ width: `${startup.riskAssessment.protocolRobustness}%` }}
                     ></div>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-[9px] font-mono text-[#bbcabf]/60 uppercase">
+                <div className="flex items-center gap-1.5 text-[9px] font-mono text-on-surface-variant/60 uppercase">
                   <span className="material-symbols-outlined text-xs text-primary">description</span>
                   <span>
                     AUDITED BY {startup.riskAssessment.auditedBy || "TRAIL OF BITS"} ({startup.riskAssessment.auditDate || "FEB 2026"})
@@ -392,10 +392,10 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
           )}
 
           {/* Sentiment Radial Card */}
-          <section className="glass-card p-5 rounded-xl flex items-center gap-4 bg-gradient-to-br from-[#111317] to-[#1A1C1F]">
+          <section className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex items-center gap-4">
             <div className="relative w-14 h-14 shrink-0">
               <svg className="w-full h-full transform -rotate-90">
-                <circle cx="28" cy="28" fill="transparent" r="24" stroke="#1c1e22" strokeWidth="3"></circle>
+                <circle cx="28" cy="28" fill="transparent" r="24" stroke="#2a2a2a" strokeWidth="3"></circle>
                 <circle
                   cx="28"
                   cy="28"
@@ -413,7 +413,7 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
             </div>
             <div>
               <p className="text-xs text-white font-bold mb-0.5">Extremely Bullish Sentiment</p>
-              <p className="text-[10px] text-[#bbcabf]/50 leading-relaxed">
+              <p className="text-[10px] text-on-surface-variant/50 leading-relaxed">
                 Calculated via open-source mentions, dev activity index, and search trends weight.
               </p>
             </div>
@@ -429,14 +429,14 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
           { label: "ProductHunt Ranking", val: `#${startup.productHuntRank || "—"}`, icon: "rocket_launch", color: "text-tertiary" },
           { label: "Google Trends Value", val: startup.trendsScore.toFixed(1), icon: "query_stats", color: "text-primary" },
         ].map((item, idx) => (
-          <div key={idx} className="glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center">
+          <div key={idx} className="bg-surface-container-low border border-graphite-stroke p-4 rounded-sm flex flex-col items-center justify-center text-center">
             <span className={`material-symbols-outlined text-sm mb-1.5 ${item.color}`}>
               {item.icon}
             </span>
             <span className="font-sans font-bold text-lg text-white block mb-0.5">
               {item.val}
             </span>
-            <span className="font-mono text-[9px] uppercase tracking-wider text-[#bbcabf]/50">
+            <span className="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant/50">
               {item.label}
             </span>
           </div>
@@ -445,15 +445,15 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
 
       {/* Inquiry Dialog Modal Overlay */}
       {isInquiryOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-[#111317] border border-[#3c4a42]/60 rounded-xl overflow-hidden shadow-2xl p-6">
-            <div className="flex justify-between items-center pb-4 border-b border-[#3c4a42]/20 mb-4">
+        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="w-full max-w-md bg-surface-container-low border border-primary/50 rounded-sm overflow-hidden shadow-2xl p-6">
+            <div className="flex justify-between items-center pb-4 border-b border-graphite-stroke mb-4">
               <h3 className="font-sans font-bold text-white uppercase text-xs tracking-wider">
                 Inquire Allocation Space
               </h3>
               <span
                 onClick={() => setIsInquiryOpen(false)}
-                className="material-symbols-outlined text-[#bbcabf] hover:text-white cursor-pointer text-sm"
+                className="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer text-sm"
               >
                 close
               </span>
@@ -465,20 +465,20 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
                 <p className="font-mono text-xs text-primary uppercase font-bold tracking-widest">
                   Allocation Inquiry Transmitted
                 </p>
-                <p className="text-[10px] text-[#bbcabf]/60 leading-relaxed font-mono">
-                  Requested {allocationAmount} from {startup.name}Series allocation desk.
+                <p className="text-[10px] text-on-surface-variant/60 leading-relaxed font-mono">
+                  Requested {allocationAmount} from {startup.name} Series allocation desk.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleInquirySubmit} className="flex flex-col gap-4">
-                <p className="text-xs text-[#bbcabf]/70 leading-relaxed">
+                <p className="text-xs text-on-surface-variant/70 leading-relaxed">
                   Submit an institutional inquiry for {startup.name} stage allocation. This will dispatch credentials directly to the founders.
                 </p>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-[9px] uppercase text-[#bbcabf]/50">Requested Allocation</label>
+                  <label className="font-mono text-[9px] uppercase text-on-surface-variant/50">Requested Allocation</label>
                   <select
-                    className="w-full bg-[#0C0E11] border border-[#3c4a42]/40 rounded p-2 text-xs font-mono text-[#e2e2e6] focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none"
+                     className="w-full bg-surface-container-lowest border border-graphite-stroke rounded-sm p-2 text-xs font-mono text-on-surface focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none"
                     value={allocationAmount}
                     onChange={(e) => setAllocationAmount(e.target.value)}
                   >
@@ -490,16 +490,16 @@ export default function StartupDetails({ initialStartup }: StartupDetailsProps) 
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-[9px] uppercase text-[#bbcabf]/50">Investor Notes (Optional)</label>
+                  <label className="font-mono text-[9px] uppercase text-on-surface-variant/50">Investor Notes (Optional)</label>
                   <textarea
-                    className="w-full h-20 bg-[#0C0E11] border border-[#3c4a42]/40 rounded p-2 text-xs font-sans text-[#e2e2e6] focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none placeholder-[#bbcabf]/30"
+                    className="w-full h-20 bg-surface-container-lowest border border-graphite-stroke rounded-sm p-2 text-xs font-sans text-on-surface focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none placeholder-on-surface-variant/30"
                     placeholder="We'd love to lead or participate in this round. We provide deep infra scaling assistance..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-black font-mono font-bold text-xs uppercase tracking-wider py-2.5 rounded hover:brightness-110 transition-colors mt-2"
+                  className="w-full bg-primary text-black font-mono font-bold text-xs uppercase tracking-wider py-2.5 rounded-sm hover:brightness-110 transition-colors mt-2"
                 >
                   Transmit Inquiry
                 </button>

@@ -36,14 +36,14 @@ export default function MomentumChart({ scoreHistory }: MomentumChartProps) {
       ];
 
   if (!mounted) {
-    // Beautiful SVG placeholder to prevent hydration error / layout shift
+    // SVG placeholder to prevent hydration error / layout shift
     return (
-      <div className="w-full h-full flex items-center justify-center bg-[#111317]/50 rounded-lg animate-pulse min-h-[320px]">
+      <div className="w-full h-full flex items-center justify-center bg-surface-container-low rounded-sm animate-pulse min-h-[320px]">
         <svg className="w-full h-full p-4 overflow-visible" preserveAspectRatio="none" viewBox="0 0 1000 300">
           <path d="M0,280 Q100,260 200,240 T400,180 T600,140 T800,80 T1000,40" fill="none" stroke="#4edea3" strokeWidth="3" opacity="0.3"></path>
-          <line stroke="#1e2023" strokeDasharray="4" strokeWidth="1" x1="0" x2="1000" y1="50" y2="50"></line>
-          <line stroke="#1e2023" strokeDasharray="4" strokeWidth="1" x1="0" x2="1000" y1="150" y2="150"></line>
-          <line stroke="#1e2023" strokeDasharray="4" strokeWidth="1" x1="0" x2="1000" y1="250" y2="250"></line>
+          <line stroke="#2a2a2a" strokeDasharray="4" strokeWidth="1" x1="0" x2="1000" y1="50" y2="50"></line>
+          <line stroke="#2a2a2a" strokeDasharray="4" strokeWidth="1" x1="0" x2="1000" y1="150" y2="150"></line>
+          <line stroke="#2a2a2a" strokeDasharray="4" strokeWidth="1" x1="0" x2="1000" y1="250" y2="250"></line>
         </svg>
       </div>
     );
@@ -62,7 +62,7 @@ export default function MomentumChart({ scoreHistory }: MomentumChartProps) {
               <stop offset="95%" stopColor="#4edea3" stopOpacity={0.0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#1c1e22" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
           <XAxis 
             dataKey="date" 
             stroke="#bbcabf" 
@@ -79,10 +79,10 @@ export default function MomentumChart({ scoreHistory }: MomentumChartProps) {
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: "#111317",
-              borderColor: "#3c4a42",
-              borderRadius: "4px",
-              color: "#e2e2e6",
+              backgroundColor: "#1c1b1b",
+              borderColor: "#2a2a2a",
+              borderRadius: "2px",
+              color: "#e5e2e1",
               fontFamily: "JetBrains Mono, monospace"
             }}
           />

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Sidebar from "@/components/sidebar";
 import Header from "@/components/header";
 import CommandBar from "@/components/command-bar";
@@ -12,10 +13,12 @@ export default async function TerminalLayout({
   const { isFallback } = await getStartups();
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] terminal-grid">
+    <div className="min-h-screen bg-background terminal-grid">
       <Sidebar />
       <div className="pl-[64px] flex flex-col min-h-screen">
-        <Header isFallback={isFallback} />
+        <Suspense fallback={<div className="h-12 border-b border-graphite-stroke bg-surface-container-low" />}>
+          <Header isFallback={isFallback} />
+        </Suspense>
         <main className="flex-1 p-6 md:p-8 max-w-[1440px] w-full mx-auto pb-28">
           {children}
         </main>

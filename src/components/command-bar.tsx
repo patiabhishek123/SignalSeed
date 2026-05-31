@@ -72,23 +72,23 @@ export default function CommandBar() {
 
   return (
     <>
-      {/* Sticky Bottom Trigger */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-xl px-4 z-40">
+      {/* Sticky Bottom Trigger - Modern Terminal Style */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-lg px-4 z-40">
         <div
           onClick={() => setIsOpen(true)}
-          className="glass-card rounded-full px-6 py-3 flex items-center justify-between shadow-2xl cursor-pointer hover:border-primary/40 transition-colors bg-[#111317]/80 hover:bg-[#1E2023]/80"
+          className="bg-surface-container-low border border-graphite-stroke rounded-sm px-5 py-2.5 flex items-center justify-between shadow-2xl cursor-pointer hover:border-primary/45 transition-colors"
         >
-          <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-primary text-xl">bolt</span>
-            <span className="font-mono text-[11px] text-[#bbcabf]/60">
-              PRESS <span className="text-primary">⌘K</span> TO EXECUTE COMMANDS OR SEARCH...
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-base">bolt</span>
+            <span className="font-mono text-[10px] text-on-surface-variant/60 tracking-wider">
+              PRESS <span className="text-primary font-bold">⌘K</span> FOR COMMAND TERMINAL...
             </span>
           </div>
           <div className="flex gap-1">
-            <kbd className="px-2 py-0.5 bg-[#333538] border border-[#3c4a42]/30 rounded text-[9px] font-mono text-[#bbcabf]">
+            <kbd className="px-1.5 py-0.5 bg-surface-container-high border border-graphite-stroke rounded-sm text-[8px] font-mono text-on-surface-variant/80">
               ⌘
             </kbd>
-            <kbd className="px-2 py-0.5 bg-[#333538] border border-[#3c4a42]/30 rounded text-[9px] font-mono text-[#bbcabf]">
+            <kbd className="px-1.5 py-0.5 bg-surface-container-high border border-graphite-stroke rounded-sm text-[8px] font-mono text-on-surface-variant/80">
               K
             </kbd>
           </div>
@@ -97,39 +97,40 @@ export default function CommandBar() {
 
       {/* Modal Dialog */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
           <div
             ref={modalRef}
-            className="w-full max-w-2xl bg-[#111317] border border-[#3c4a42]/60 rounded-xl overflow-hidden shadow-2xl flex flex-col h-[400px]"
+            className="w-full max-w-xl bg-surface-container-low border border-primary/50 rounded-sm overflow-hidden shadow-2xl flex flex-col h-[360px]"
           >
             {/* Input bar */}
-            <div className="flex items-center gap-3 p-4 border-b border-[#3c4a42]/30 bg-[#0C0E11]">
-              <span className="material-symbols-outlined text-primary text-xl">bolt</span>
+            <div className="flex items-center gap-2.5 p-3.5 border-b border-graphite-stroke bg-surface-container-lowest">
+              <span className="material-symbols-outlined text-primary text-base animate-pulse">terminal</span>
               <input
                 ref={inputRef}
-                className="w-full bg-transparent border-none text-[#e2e2e6] font-mono text-xs focus:ring-0 outline-none placeholder-[#bbcabf]/30"
-                placeholder="TYPE A COMMAND (e.g. /dashboard, /emerging) OR ENTITY NAME..."
+                className="w-full bg-transparent border-none text-on-surface font-mono text-[11px] focus:ring-0 outline-none placeholder-on-surface-variant/30 uppercase tracking-wider"
+                placeholder="TYPE /COMMAND OR STARTUP NAME..."
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                style={{ caretColor: "#4edea3" }} // Custom blinking emerald cursor
               />
               <span
                 onClick={() => setIsOpen(false)}
-                className="material-symbols-outlined text-[#bbcabf] hover:text-[#ffb3ad] cursor-pointer text-sm"
+                className="material-symbols-outlined text-on-surface-variant/60 hover:text-error cursor-pointer text-sm"
               >
                 close
               </span>
             </div>
 
             {/* Results body */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-3 space-y-3">
               {/* Commands Section */}
               {(!query || query.startsWith("/")) && (
                 <div>
-                  <h4 className="font-mono text-[9px] tracking-widest text-[#bbcabf]/40 uppercase mb-2">
+                  <h4 className="font-mono text-[8px] tracking-widest text-on-surface-variant/40 uppercase mb-1.5 px-2">
                     Terminal Navigation
                   </h4>
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     {[
                       { cmd: "/dashboard", desc: "Open main momentum leaderboard terminal" },
                       { cmd: "/emerging", desc: "View real-time emerging signals aggregator" },
@@ -138,10 +139,10 @@ export default function CommandBar() {
                       <div
                         key={item.cmd}
                         onClick={() => handleCommand(item.cmd)}
-                        className="flex items-center justify-between p-2 rounded hover:bg-[#1E2023] cursor-pointer group transition-colors"
+                        className="flex items-center justify-between p-2 rounded-sm hover:bg-surface-container-high cursor-pointer group transition-colors"
                       >
-                        <span className="font-mono text-xs text-primary">{item.cmd}</span>
-                        <span className="font-mono text-[10px] text-[#bbcabf]/50 group-hover:text-[#bbcabf]">
+                        <span className="font-mono text-[10px] text-primary">{item.cmd}</span>
+                        <span className="font-mono text-[9px] text-on-surface-variant/50 group-hover:text-on-surface-variant">
                           {item.desc}
                         </span>
                       </div>
@@ -152,32 +153,32 @@ export default function CommandBar() {
 
               {/* Startups Section */}
               <div>
-                <h4 className="font-mono text-[9px] tracking-widest text-[#bbcabf]/40 uppercase mb-2">
+                <h4 className="font-mono text-[8px] tracking-widest text-on-surface-variant/40 uppercase mb-1.5 px-2">
                   Startup Entities ({filteredStartups.length})
                 </h4>
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                   {filteredStartups.map((startup) => (
                     <div
                       key={startup.id}
                       onClick={() => handleCommand(startup.id)}
-                      className="flex items-center justify-between p-2 rounded hover:bg-[#1E2023] cursor-pointer group transition-colors"
+                      className="flex items-center justify-between p-2 rounded-sm hover:bg-surface-container-high cursor-pointer group transition-colors"
                     >
                       <div className="flex items-center gap-2">
-                        <span className="font-sans text-xs text-[#e2e2e6] font-bold group-hover:text-primary transition-colors">
+                        <span className="font-sans text-[11px] text-on-surface font-semibold group-hover:text-primary transition-colors">
                           {startup.name}
                         </span>
-                        <span className="font-mono text-[9px] bg-[#282A2D] text-[#bbcabf] px-1.5 py-0.5 rounded border border-[#3c4a42]/30 uppercase">
+                        <span className="font-mono text-[8px] bg-surface-container-highest text-on-surface-variant px-1 py-0.2 rounded-sm border border-graphite-stroke uppercase">
                           {startup.stage}
                         </span>
                       </div>
-                      <span className="font-mono text-[10px] text-primary">
+                      <span className="font-mono text-[9px] text-primary">
                         Score: {startup.momentumScore.toFixed(1)}
                       </span>
                     </div>
                   ))}
                   {filteredStartups.length === 0 && (
-                    <div className="text-center py-6">
-                      <span className="font-mono text-[10px] text-[#bbcabf]/30 uppercase">
+                    <div className="text-center py-4">
+                      <span className="font-mono text-[9px] text-on-surface-variant/30 uppercase">
                         No entities found matching search criteria
                       </span>
                     </div>
@@ -187,9 +188,9 @@ export default function CommandBar() {
             </div>
 
             {/* Footer help */}
-            <div className="bg-[#0C0E11] p-3 border-t border-[#3c4a42]/30 flex justify-between items-center text-[10px] font-mono text-[#bbcabf]/40">
+            <div className="bg-surface-container-lowest p-2.5 border-t border-graphite-stroke flex justify-between items-center text-[8px] font-mono text-on-surface-variant/40">
               <span>↑↓ navigation | enter select</span>
-              <span>esc close terminal terminal_v0.1</span>
+              <span>esc close terminal terminal_v0.2</span>
             </div>
           </div>
         </div>

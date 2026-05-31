@@ -20,12 +20,12 @@ export default async function StartupDetailPage({ params }: PageProps) {
         <h1 className="font-sans text-xl font-bold text-white uppercase tracking-wider">
           Entity Not Found
         </h1>
-        <p className="font-mono text-xs text-[#bbcabf]/70 max-w-sm">
+        <p className="font-mono text-xs text-on-surface-variant/70 max-w-sm">
           The requested startup identifier <span className="text-primary font-bold">"{id}"</span> does not correspond to any active database or mock record.
         </p>
         <Link
           href="/dashboard"
-          className="mt-4 px-5 py-2 bg-primary text-black font-mono text-xs font-bold uppercase tracking-wider rounded hover:brightness-110 transition-colors"
+          className="mt-4 px-5 py-2 bg-primary text-black font-mono text-xs font-bold uppercase tracking-wider rounded-sm hover:brightness-110 transition-colors"
         >
           Return to Dashboard
         </Link>

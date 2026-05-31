@@ -92,27 +92,27 @@ export default function UnicornsList({ initialStartups }: UnicornsListProps) {
     <div className="flex flex-col gap-8 w-full">
       {/* Aggregate Stats Bar */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div className="bg-[#111317] border border-[#3c4a42]/30 p-4 rounded-xl shadow-sm">
-          <span className="font-mono text-[9px] text-[#bbcabf]/50 uppercase tracking-widest block mb-1">
+        <div className="bg-surface-container-low border border-graphite-stroke p-4 rounded-sm shadow-none">
+          <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-widest block mb-1">
             Total Unicorn Cohort Capitalization
           </span>
-          <span className="font-sans text-2xl font-extrabold text-white">
+          <span className="font-mono text-2xl font-extrabold text-white">
             ${totalValuation.toFixed(1)}M
           </span>
         </div>
-        <div className="bg-[#111317] border border-[#3c4a42]/30 p-4 rounded-xl shadow-sm">
-          <span className="font-mono text-[9px] text-[#bbcabf]/50 uppercase tracking-widest block mb-1">
+        <div className="bg-surface-container-low border border-graphite-stroke p-4 rounded-sm shadow-none">
+          <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-widest block mb-1">
             Average Cohort Valuation
           </span>
-          <span className="font-sans text-2xl font-extrabold text-primary">
+          <span className="font-mono text-2xl font-extrabold text-primary">
             ${averageValuation.toFixed(1)}M
           </span>
         </div>
-        <div className="bg-[#111317] border border-[#3c4a42]/30 p-4 rounded-xl shadow-sm">
-          <span className="font-mono text-[9px] text-[#bbcabf]/50 uppercase tracking-widest block mb-1">
+        <div className="bg-surface-container-low border border-graphite-stroke p-4 rounded-sm shadow-none">
+          <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-widest block mb-1">
             Cumulative Funding Raised
           </span>
-          <span className="font-sans text-2xl font-extrabold text-white">
+          <span className="font-mono text-2xl font-extrabold text-white">
             ${totalFunding.toFixed(1)}M
           </span>
         </div>
@@ -130,7 +130,7 @@ export default function UnicornsList({ initialStartups }: UnicornsListProps) {
             return (
               <div
                 key={startup.id}
-                className="glass-card rounded-xl p-5 border border-[#3c4a42]/30 hover:border-primary/50 transition-all flex flex-col justify-between gap-4"
+                className="bg-surface-container-low rounded-sm p-5 border border-graphite-stroke hover:border-primary/50 transition-all flex flex-col justify-between gap-4 shadow-none"
               >
                 <div className="flex justify-between items-start">
                   <div>
@@ -141,21 +141,21 @@ export default function UnicornsList({ initialStartups }: UnicornsListProps) {
                       >
                         {startup.name}
                       </Link>
-                      <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded text-[8px] font-mono border border-primary/20 uppercase tracking-widest font-bold">
+                      <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded-sm text-[8px] font-mono border border-primary/20 uppercase tracking-widest font-bold">
                         {startup.stage}
                       </span>
                     </div>
-                    <span className="font-mono text-[9px] text-[#bbcabf]/50 uppercase mt-0.5 block">
+                    <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase mt-0.5 block">
                       {startup.sector} // {startup.location}
                     </span>
                   </div>
 
                   <button
                     onClick={(e) => handleToggleSave(startup.id, e)}
-                    className={`w-7 h-7 rounded border flex items-center justify-center transition-colors ${
+                    className={`w-7 h-7 rounded-sm border flex items-center justify-center transition-colors ${
                       startup.saved
                         ? "bg-primary/20 border-primary text-primary"
-                        : "border-[#3c4a42]/40 text-[#bbcabf]/40 hover:text-white"
+                        : "border-graphite-stroke/60 text-on-surface-variant/40 hover:text-white"
                     }`}
                   >
                     <span
@@ -167,36 +167,36 @@ export default function UnicornsList({ initialStartups }: UnicornsListProps) {
                   </button>
                 </div>
 
-                <p className="font-sans text-xs text-[#bbcabf]/70 leading-relaxed line-clamp-2">
+                <p className="font-sans text-xs text-on-surface-variant/70 leading-relaxed line-clamp-2">
                   {startup.description}
                 </p>
 
                 {/* Unicorn Likelihood Slider representation */}
                 <div>
                   <div className="flex justify-between items-baseline mb-1 text-[9px] font-mono">
-                    <span className="text-[#bbcabf]/50 uppercase">Unicorn Likelihood Index</span>
+                    <span className="text-on-surface-variant/50 uppercase">Unicorn Likelihood Index</span>
                     <span className="text-primary font-bold">{likelihood}%</span>
                   </div>
-                  <div className="w-full bg-[#0C0E11] h-1.5 rounded-full overflow-hidden border border-[#3c4a42]/10">
+                  <div className="w-full bg-surface-container-lowest h-1.5 rounded-sm overflow-hidden border border-graphite-stroke/20">
                     <div
-                      className="bg-gradient-to-r from-[#10b981] to-primary h-full rounded-full"
+                      className="bg-primary h-full rounded-sm"
                       style={{ width: `${likelihood}%` }}
                     ></div>
                   </div>
                 </div>
 
                 {/* Stats block */}
-                <div className="grid grid-cols-3 gap-4 border-t border-[#3c4a42]/20 pt-3 mt-1 font-mono text-[10px]">
+                <div className="grid grid-cols-3 gap-4 border-t border-graphite-stroke/40 pt-3 mt-1 font-mono text-[10px]">
                   <div>
-                    <span className="text-[#bbcabf]/40 block text-[8px] uppercase">Valuation</span>
+                    <span className="text-on-surface-variant/40 block text-[8px] uppercase">Valuation</span>
                     <span className="text-white font-bold">${startup.valuation}M</span>
                   </div>
-                  <div className="border-x border-[#3c4a42]/10 px-3">
-                    <span className="text-[#bbcabf]/40 block text-[8px] uppercase">Funding</span>
+                  <div className="border-x border-graphite-stroke/45 px-3">
+                    <span className="text-on-surface-variant/40 block text-[8px] uppercase">Funding</span>
                     <span className="text-white font-bold">${startup.funding}M</span>
                   </div>
                   <div className="text-right">
-                    <span className="text-[#bbcabf]/40 block text-[8px] uppercase">Stars Velocity</span>
+                    <span className="text-on-surface-variant/40 block text-[8px] uppercase">Stars Velocity</span>
                     <span className="text-primary font-bold">+{startup.githubStarsWk}/Wk</span>
                   </div>
                 </div>

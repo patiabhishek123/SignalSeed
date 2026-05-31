@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/seed/route": "/api/seed",
+  "/page": "/",
+  "/(terminal)/dashboard/page": "/dashboard",
+  "/(terminal)/hidden-gems/page": "/hidden-gems",
+  "/(terminal)/startup/[id]/page": "/startup/[id]",
+  "/(terminal)/time-machine/page": "/time-machine",
+  "/(terminal)/emerging/page": "/emerging",
+  "/(terminal)/unicorns/page": "/unicorns"
+}

@@ -15,11 +15,11 @@ export default function Sidebar() {
   ];
 
   return (
-    <nav className="fixed left-0 top-0 h-full w-[64px] hover:w-[240px] transition-all duration-300 z-50 bg-[#111317] border-r border-[#3c4a42]/30 flex flex-col py-6 group overflow-hidden">
+    <nav className="fixed left-0 top-0 h-full w-[64px] hover:w-[240px] transition-all duration-300 z-50 bg-[#0d0d0d] border-r border-graphite-stroke flex flex-col py-6 group overflow-hidden">
       {/* Brand logo */}
       <div className="px-4 mb-10 flex items-center gap-4">
         <Link href="/" className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-primary text-2xl shrink-0" style={{ fontVariationSettings: "'FILL' 1" }}>
+          <span className="material-symbols-outlined text-primary text-[20px] shrink-0" style={{ fontVariationSettings: "'FILL' 1" }}>
             search_insights
           </span>
           <span className="font-sans text-lg font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -36,14 +36,14 @@ export default function Sidebar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center gap-4 h-12 px-4 border-r-2 transition-all cursor-pointer ${
+              className={`flex items-center gap-4 h-12 px-4 border-l-[3px] transition-all cursor-pointer ${
                 isActive
-                  ? "text-primary border-primary bg-[#1e2023]/40"
-                  : "text-[#bbcabf] border-transparent hover:bg-[#1e2023]/40 hover:text-white"
+                  ? "text-primary border-primary bg-surface-container-low"
+                  : "text-on-surface-variant border-transparent hover:bg-surface-container-low hover:text-white"
               }`}
             >
               <span
-                className="material-symbols-outlined shrink-0 text-xl"
+                className="material-symbols-outlined shrink-0 text-[20px]"
                 style={{ fontVariationSettings: isActive ? "'FILL' 1" : undefined }}
               >
                 {item.icon}
@@ -58,14 +58,14 @@ export default function Sidebar() {
 
       {/* Footer items */}
       <div className="flex flex-col gap-1 mt-auto">
-        <div className="flex items-center gap-4 h-12 px-4 text-[#bbcabf] hover:bg-[#1e2023]/40 hover:text-white transition-colors cursor-pointer">
-          <span className="material-symbols-outlined shrink-0 text-xl">settings</span>
+        <div className="flex items-center gap-4 h-12 px-4 border-l-[3px] border-transparent text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-colors cursor-pointer">
+          <span className="material-symbols-outlined shrink-0 text-[20px]">settings</span>
           <span className="font-mono text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
             Settings
           </span>
         </div>
-        <div className="flex items-center gap-4 h-12 px-4 text-[#bbcabf] hover:bg-[#1e2023]/40 hover:text-white transition-colors cursor-pointer">
-          <span className="material-symbols-outlined shrink-0 text-xl">help_outline</span>
+        <div className="flex items-center gap-4 h-12 px-4 border-l-[3px] border-transparent text-on-surface-variant hover:bg-surface-container-low hover:text-white transition-colors cursor-pointer">
+          <span className="material-symbols-outlined shrink-0 text-[20px]">help_outline</span>
           <span className="font-mono text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
             Support
           </span>
@@ -73,7 +73,7 @@ export default function Sidebar() {
 
         {/* Profile Avatar */}
         <div className="mt-4 px-3">
-          <div className="w-9 h-9 rounded-full bg-[#333538] flex items-center justify-center border border-[#3c4a42]/40 overflow-hidden">
+          <div className="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center border border-graphite-stroke overflow-hidden">
             <img
               alt="Investor Profile"
               className="w-full h-full object-cover"
