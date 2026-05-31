@@ -1,370 +1,265 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { toggleSaveStartup } from "@/actions/startups";
-import AccelerationChart from "@/components/acceleration-chart";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-interface Founder {
-  name: string;
-  title: string;
-  avatar: string;
-}
+// Mock Data for Momentum Trend Chart
+const TREND_DATA = [
+  { date: "May 01", "ZeroPoint": 45, "LocalLLM": 62, "HydroGen": 55 },
+  { date: "May 05", "ZeroPoint": 48, "LocalLLM": 68, "HydroGen": 58 },
+  { date: "May 10", "ZeroPoint": 58, "LocalLLM": 74, "HydroGen": 60 },
+  { date: "May 15", "ZeroPoint": 65, "LocalLLM": 79, "HydroGen": 63 },
+  { date: "May 20", "ZeroPoint": 74, "LocalLLM": 82, "HydroGen": 70 },
+  { date: "May 25", "ZeroPoint": 81, "LocalLLM": 88, "HydroGen": 73 },
+  { date: "May 30", "ZeroPoint": 84.5, "LocalLLM": 92.1, "HydroGen": 76.8 },
+];
 
-interface RiskAssessment {
-  id: string;
-  startupId: string;
-  protocolRobustness: number;
-  liquidityCrunch: string | null;
-  regulatoryPivot: string | null;
-  ipOverlapAlert: string | null;
-  auditedBy: string | null;
-  auditDate: string | null;
-}
+// Mock Data for Tables and Unicorns
+const EMERGING_STARTUPS = [
+  { id: "zeropoint", name: "ZeroPoint Compute", category: "Hardware", momentum: 84.5, status: "STRONG", change: "+12.4%" },
+  { id: "localllm", name: "LocalLLM.org", category: "AI Infra", momentum: 92.1, status: "STRONG", change: "+8.2%" },
+  { id: "hydrogen", name: "HydroGen", category: "CleanTech", momentum: 76.8, status: "STABLE", change: "+2.1%" },
+  { id: "cloudweave", name: "CloudWeave", category: "DevOps", momentum: 81.3, status: "STRONG", change: "+5.9%" },
+];
 
-interface Signal {
-  id: string;
-  startupId: string;
-  source: "GITHUB" | "HN" | "GOOGLE_TRENDS" | "PRODUCT_HUNT" | "YC";
-  title: string;
-  description: string;
-  score: number;
-  timestamp: Date;
-}
+const HIDDEN_GEMS = [
+  { id: "neuromesh", name: "NeuroMesh", momentum: 79.2, attention: "LOW", score: 94 },
+  { id: "biosynth", name: "BioSynth", momentum: 72.5, attention: "MEDIUM", score: 89 },
+  { id: "deeptrace", name: "DeepTrace", momentum: 81.0, attention: "LOW", score: 92 },
+  { id: "optima", name: "Optima", momentum: 68.4, attention: "LOW", score: 86 },
+];
 
-interface Startup {
-  id: string;
-  name: string;
-  description: string;
-  logoUrl: string | null;
-  sector: string;
-  stage: string;
-  valuation: number;
-  funding: number;
-  website: string;
-  location: string;
-  founders: Founder[];
-  githubStars: number;
-  githubStarsWk: number;
-  hnMentionsWk: number;
-  productHuntRank: number;
-  trendsScore: number;
-  momentumScore: number;
-  momentumStatus: "STRONG" | "STABLE" | "DECAY" | "NEUTRAL";
-  createdAt: Date;
-  updatedAt: Date;
-  signals: Signal[];
-  saved: boolean;
-  riskAssessment: RiskAssessment | null;
-}
+const FUTURE_UNICORNS = [
+  { id: "hyperscale", name: "HyperScale AI", stage: "SERIES B", valuation: 145, probability: 94, funding: 32 },
+  { id: "quantflow", name: "QuantFlow", stage: "SERIES A", valuation: 85, probability: 88, funding: 18 },
+  { id: "ethernet", name: "EtherNet", stage: "SERIES B", valuation: 120, probability: 91, funding: 24 },
+];
 
-interface DashboardTerminalProps {
-  initialStartups: Startup[];
-  initialSignals: (Signal & { startupName: string })[];
-}
+export default function DashboardTerminal() {
+  const [mounted, setMounted] = useState(false);
 
-export default function DashboardTerminal({
-  initialStartups,
-  initialSignals,
-}: DashboardTerminalProps) {
-  const [startups, setStartups] = useState<Startup[]>(initialStartups);
-  const [filterSavedOnly, setFilterSavedOnly] = useState(false);
-  const [selectedStartupId, setSelectedStartupId] = useState<string>(
-    initialStartups[0]?.id || ""
-  );
-  const [, startTransition] = useTransition();
-
-  const selectedStartup = startups.find((s) => s.id === selectedStartupId) || startups[0];
-
-  const handleToggleSave = async (id: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // Optimistically update client state
-    setStartups((prev) =>
-      prev.map((s) => (s.id === id ? { ...s, saved: !s.saved } : s))
-    );
-
-    // Call server action to toggle save in DB
-    startTransition(async () => {
-      await toggleSaveStartup(id);
-    });
-  };
-
-  const displayedStartups = filterSavedOnly
-    ? startups.filter((s) => s.saved)
-    : startups;
-
-  const getStatusColor = (status: string) => {
-    if (status === "STRONG") return "text-primary";
-    if (status === "STABLE") return "text-secondary";
-    if (status === "DECAY") return "text-error";
-    return "text-on-surface-variant";
-  };
-
-  const getStatusIcon = (status: string) => {
-    if (status === "STRONG") return "trending_up";
-    if (status === "STABLE") return "trending_flat";
-    if (status === "DECAY") return "trending_down";
-    return "fiber_manual_record";
-  };
-
-  const getSourceIconColor = (source: string) => {
-    if (source === "GITHUB") return "text-white";
-    if (source === "HN") return "text-secondary";
-    if (source === "PRODUCT_HUNT") return "text-[#da552f]";
-    if (source === "GOOGLE_TRENDS") return "text-[#4285f4]";
-    return "text-primary";
-  };
-
-  const getSourceIcon = (source: string) => {
-    if (source === "GITHUB") return "code";
-    if (source === "HN") return "forum";
-    if (source === "PRODUCT_HUNT") return "rocket_launch";
-    if (source === "GOOGLE_TRENDS") return "query_stats";
-    return "auto_awesome";
-  };
-
-  // 24H Deltas
-  const topDeltaStartup = startups.reduce((max, s) =>
-    s.momentumScore > max.momentumScore ? s : max,
-    startups[0]
-  );
+  // Prevent hydration layout shift
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <div className="grid grid-cols-12 gap-6 w-full">
-      {/* Left Column: Momentum Leaderboard */}
-      <section className="col-span-12 lg:col-span-4 flex flex-col gap-3">
-        <div className="flex items-baseline justify-between">
-          <h2 className="font-mono text-[11px] font-bold text-white uppercase tracking-wider">
-            Momentum Leaderboard
-          </h2>
-          <button
-            onClick={() => setFilterSavedOnly((prev) => !prev)}
-            className={`font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-sm border transition-colors ${
-              filterSavedOnly
-                ? "bg-primary/10 text-primary border-primary/30"
-                : "border-graphite-stroke text-on-surface-variant hover:text-white"
-            }`}
+    <div className="flex flex-col gap-8 w-full">
+      {/* Page Header */}
+      <div>
+        <h1 className="font-sans text-2xl font-bold tracking-tight text-white uppercase">
+          Venture Intelligence Terminal
+        </h1>
+        <p className="font-mono text-xs text-on-surface-variant/60 uppercase tracking-wider mt-1">
+          Real-time momentum indicators & institutional signal dashboards
+        </p>
+      </div>
+
+      {/* 1. KPI Row */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { label: "Startups Tracked", val: "84", change: "+12 this week", icon: "monitoring", color: "text-primary" },
+          { label: "Momentum Leaders", val: "18", change: "Active alerts", icon: "bolt", color: "text-secondary" },
+          { label: "Hidden Gems", val: "7", change: "Flagged low-attention", icon: "diamond", color: "text-tertiary" },
+          { label: "Categories Covered", val: "12", change: "Sectors indexed", icon: "category", color: "text-primary" },
+        ].map((kpi, idx) => (
+          <div
+            key={idx}
+            className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex flex-col justify-between shadow-none hover:border-primary/30 transition-colors"
           >
-            {filterSavedOnly ? "SHOWING SAVED" : "SHOW ALL"}
-          </button>
-        </div>
-
-        <div className="bg-surface-container-low rounded-sm border border-graphite-stroke overflow-hidden shadow-none">
-          <table className="w-full text-left border-collapse">
-            <thead className="bg-surface-container border-b border-graphite-stroke">
-              <tr>
-                <th className="p-2.5 font-mono text-[9px] text-on-surface-variant/50 uppercase">Entity</th>
-                <th className="p-2.5 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">Score</th>
-                <th className="p-2.5 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">State</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-graphite-stroke/40">
-              {displayedStartups.map((startup) => {
-                const isSelected = startup.id === selectedStartupId;
-                return (
-                  <tr
-                    key={startup.id}
-                    onClick={() => setSelectedStartupId(startup.id)}
-                    className={`transition-colors cursor-pointer group hover:bg-surface-container-high/40 ${
-                      isSelected ? "bg-surface-container-high" : ""
-                    }`}
-                  >
-                    <td className="p-2.5">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={(e) => handleToggleSave(startup.id, e)}
-                          className="text-on-surface-variant/30 hover:text-primary transition-colors flex items-center"
-                        >
-                          <span
-                            className="material-symbols-outlined text-[13px]"
-                            style={{ fontVariationSettings: startup.saved ? "'FILL' 1" : undefined }}
-                          >
-                            star
-                          </span>
-                        </button>
-                        <div className="min-w-0">
-                          <Link
-                            href={`/startup/${startup.id}`}
-                            className="font-sans font-bold text-[12px] text-on-surface hover:text-primary transition-colors block truncate"
-                          >
-                            {startup.name}
-                          </Link>
-                          <span className="text-[8px] text-on-surface-variant/50 font-mono uppercase tracking-wider block mt-0.5">
-                            {startup.sector}
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2.5 text-right">
-                      <span className="font-mono text-[12px] font-bold text-primary">
-                        {startup.momentumScore.toFixed(1)}
-                      </span>
-                    </td>
-                    <td className="p-2.5 text-right">
-                      <div className={`flex items-center justify-end gap-1 font-mono text-[9px] uppercase ${getStatusColor(startup.momentumStatus)}`}>
-                        <span className="material-symbols-outlined text-[10px]">
-                          {getStatusIcon(startup.momentumStatus)}
-                        </span>
-                        <span>{startup.momentumStatus}</span>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-              {displayedStartups.length === 0 && (
-                <tr>
-                  <td colSpan={3} className="p-8 text-center">
-                    <span className="font-mono text-[10px] text-on-surface-variant/30 uppercase">
-                      No startup entities match this filter
-                    </span>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Selected Startup Detail Card Preview */}
-        {selectedStartup && (
-          <div className="bg-surface-container-low border border-graphite-stroke p-4 rounded-sm flex flex-col gap-2.5 shadow-none">
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="font-sans font-bold text-[13px] text-white">
-                  {selectedStartup.name}
-                </h3>
-                <span className="font-mono text-[9px] text-primary uppercase tracking-widest block mt-0.5">
-                  {selectedStartup.stage} // {selectedStartup.location}
-                </span>
-              </div>
-              <Link
-                href={`/startup/${selectedStartup.id}`}
-                className="font-mono text-[9px] text-primary hover:underline uppercase tracking-wider"
-              >
-                Full Analytics →
-              </Link>
+            <div className="flex justify-between items-start mb-4">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant/60">
+                {kpi.label}
+              </span>
+              <span className={`material-symbols-outlined text-sm ${kpi.color}`}>
+                {kpi.icon}
+              </span>
             </div>
-            <p className="font-sans text-[11px] text-on-surface-variant/75 leading-relaxed line-clamp-3">
-              {selectedStartup.description}
-            </p>
-            <div className="pt-2.5 border-t border-graphite-stroke/40 flex justify-between font-mono text-[9px] text-on-surface-variant/60">
-              <span>VALUATION: ${selectedStartup.valuation}M</span>
-              <span>FUNDING: ${selectedStartup.funding}M</span>
+            <div>
+              <span className="font-mono text-2xl font-extrabold text-white block">
+                {kpi.val}
+              </span>
+              <span className="font-mono text-[8px] uppercase tracking-widest text-on-surface-variant/40 mt-1 block">
+                {kpi.change}
+              </span>
             </div>
           </div>
-        )}
+        ))}
       </section>
 
-      {/* Middle Column: Emerging Signals Feed */}
-      <section className="col-span-12 lg:col-span-4 flex flex-col gap-3">
-        <div className="flex items-baseline justify-between">
+      {/* 2. Momentum Trend Chart */}
+      <section className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex flex-col gap-4">
+        <div>
           <h2 className="font-mono text-[11px] font-bold text-white uppercase tracking-wider">
-            Emerging Signals
+            Momentum Growth Trends
           </h2>
-          <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-widest">
-            REAL-TIME STREAM
-          </span>
+          <p className="text-[9px] font-mono text-on-surface-variant/40 uppercase tracking-widest mt-0.5">
+            Cross-platform signal velocity aggregation historical timelines
+          </p>
         </div>
 
-        <div className="flex flex-col gap-2.5 max-h-[640px] overflow-y-auto pr-1">
-          {initialSignals.map((signal) => (
-            <div
-              key={signal.id}
-              className="bg-surface-container-low border border-graphite-stroke p-3.5 rounded-sm flex flex-col gap-2 relative overflow-hidden group hover:border-outline-variant transition-colors"
-            >
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-1.5">
-                  <span className={`material-symbols-outlined text-[13px] ${getSourceIconColor(signal.source)}`}>
-                    {getSourceIcon(signal.source)}
-                  </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant/70">
-                    {signal.source} Intelligence
-                  </span>
-                </div>
-                <span className="text-[8px] text-on-surface-variant/40 font-mono">
-                  {new Date(signal.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </span>
-              </div>
-              <p className="font-sans text-[11px] text-white leading-relaxed">
-                <Link href={`/startup/${signal.startupId}`} className="text-primary font-bold hover:underline mr-1">
-                  {signal.startupName}
-                </Link>
-                {signal.title.replace(signal.startupName, "").trim() || signal.description}
-              </p>
-              <div className="flex justify-between items-center pt-1.5 border-t border-graphite-stroke/20 mt-1 text-[9px] font-mono text-on-surface-variant/40">
-                <span>SIGNAL SCORE: {signal.score}</span>
-                <span className="uppercase text-[8px] text-primary/70">VALIDATED</span>
-              </div>
-            </div>
-          ))}
-
-          {initialSignals.length === 0 && (
-            <div className="bg-surface-container-low border border-graphite-stroke p-8 rounded-sm text-center">
-              <span className="font-mono text-[10px] text-on-surface-variant/30 uppercase block">
-                No signal streams detected
-              </span>
+        <div className="w-full h-[280px]">
+          {mounted ? (
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={TREND_DATA} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+                <XAxis dataKey="date" stroke="#bbcabf" opacity={0.5} tickLine={false} axisLine={false} />
+                <YAxis stroke="#bbcabf" opacity={0.5} domain={[30, 100]} tickLine={false} axisLine={false} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#1c1b1b",
+                    borderColor: "#2a2a2a",
+                    borderRadius: "2px",
+                    color: "#e5e2e1",
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: "10px"
+                  }}
+                />
+                <Legend
+                  wrapperStyle={{
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: "9px",
+                    paddingTop: "15px"
+                  }}
+                  iconSize={8}
+                />
+                <Line type="monotone" dataKey="ZeroPoint" name="ZeroPoint Compute" stroke="#4edea3" strokeWidth={2} dot={{ r: 2 }} />
+                <Line type="monotone" dataKey="LocalLLM" name="LocalLLM.org" stroke="#adc6ff" strokeWidth={2} dot={{ r: 2 }} />
+                <Line type="monotone" dataKey="HydroGen" name="HydroGen" stroke="#c6c7c0" strokeWidth={2} dot={{ r: 2 }} />
+              </LineChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="w-full h-full bg-surface-container-lowest rounded-sm animate-pulse flex items-center justify-center font-mono text-[10px] text-on-surface-variant/30 uppercase">
+              Rendering Chart Canvas...
             </div>
           )}
         </div>
       </section>
 
-      {/* Right Column: Acceleration Map & Metrics */}
-      <section className="col-span-12 lg:col-span-4 flex flex-col gap-3">
-        <div className="flex items-baseline justify-between">
+      {/* Tables Row: Emerging & Hidden Gems */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* 3. Emerging Startups Table */}
+        <section className="flex flex-col gap-3">
           <h2 className="font-mono text-[11px] font-bold text-white uppercase tracking-wider">
-            Acceleration Map
+            Emerging Startups Telemetry
           </h2>
-          <span className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-widest">
-            MARKET ACCELERATION
-          </span>
+          <div className="bg-surface-container-low border border-graphite-stroke rounded-sm overflow-hidden">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-surface-container border-b border-graphite-stroke">
+                <tr>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase">Startup</th>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase">Category</th>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">Momentum</th>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">Weekly Change</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-graphite-stroke/40">
+                {EMERGING_STARTUPS.map((startup) => (
+                  <tr key={startup.id} className="hover:bg-surface-container-high/40 transition-colors">
+                    <td className="p-3">
+                      <Link href={`/startup/${startup.id}`} className="font-sans font-bold text-xs text-white hover:text-primary transition-colors">
+                        {startup.name}
+                      </Link>
+                    </td>
+                    <td className="p-3 font-mono text-[10px] text-on-surface-variant">{startup.category}</td>
+                    <td className="p-3 text-right">
+                      <span className="font-mono text-xs font-bold text-primary">{startup.momentum.toFixed(1)}</span>
+                    </td>
+                    <td className="p-3 text-right">
+                      <span className="font-mono text-xs font-bold text-primary">{startup.change}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* 4. Hidden Gems Table */}
+        <section className="flex flex-col gap-3">
+          <h2 className="font-mono text-[11px] font-bold text-white uppercase tracking-wider">
+            Hidden Gems Flagged
+          </h2>
+          <div className="bg-surface-container-low border border-graphite-stroke rounded-sm overflow-hidden">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-surface-container border-b border-graphite-stroke">
+                <tr>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase">Startup</th>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">Momentum</th>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">Investor Attention</th>
+                  <th className="p-3 font-mono text-[9px] text-on-surface-variant/50 uppercase text-right">Gem Score</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-graphite-stroke/40">
+                {HIDDEN_GEMS.map((gem) => (
+                  <tr key={gem.id} className="hover:bg-surface-container-high/40 transition-colors">
+                    <td className="p-3">
+                      <Link href={`/startup/${gem.id}`} className="font-sans font-bold text-xs text-white hover:text-primary transition-colors">
+                        {gem.name}
+                      </Link>
+                    </td>
+                    <td className="p-3 text-right">
+                      <span className="font-mono text-xs font-bold text-on-surface-variant">{gem.momentum.toFixed(1)}</span>
+                    </td>
+                    <td className="p-3 text-right">
+                      <span className="font-mono text-[10px] text-error uppercase font-bold">{gem.attention}</span>
+                    </td>
+                    <td className="p-3 text-right">
+                      <span className="font-mono text-xs font-bold text-primary">{gem.score}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      {/* 5. Future Unicorns Section */}
+      <section className="flex flex-col gap-4">
+        <div>
+          <h2 className="font-mono text-[11px] font-bold text-white uppercase tracking-wider">
+            Future Unicorn Candidates
+          </h2>
+          <p className="text-[9px] font-mono text-on-surface-variant/40 uppercase tracking-widest mt-0.5">
+            Top ranked startups showing maximum enterprise valuation growth signals
+          </p>
         </div>
 
-        {/* Recharts Bar Chart */}
-        <div className="bg-surface-container-low border border-graphite-stroke p-3.5 rounded-sm flex flex-col gap-3.5 shadow-none">
-          <div className="flex justify-between items-baseline mb-0.5">
-            <h3 className="font-mono text-[9px] uppercase text-on-surface-variant/60 tracking-wider">
-              Weekly Geographic Corridor Velocity
-            </h3>
-          </div>
-          <AccelerationChart />
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {FUTURE_UNICORNS.map((unicorn) => (
+            <div
+              key={unicorn.id}
+              className="bg-surface-container-low border border-graphite-stroke p-5 rounded-sm flex flex-col justify-between gap-4 hover:border-primary/50 transition-all shadow-none"
+            >
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="font-sans font-bold text-sm text-white">
+                    {unicorn.name}
+                  </h3>
+                  <span className="font-mono text-[8px] bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded-sm uppercase tracking-widest font-bold mt-1 inline-block">
+                    {unicorn.stage}
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="text-on-surface-variant/40 block text-[8px] font-mono uppercase">Unicorn Prob</span>
+                  <span className="text-primary font-mono text-base font-bold">{unicorn.probability}%</span>
+                </div>
+              </div>
 
-        {/* Global Key Performance Metrics */}
-        <div className="grid grid-cols-2 gap-3">
-          <div className="bg-surface-container-low border border-graphite-stroke p-3 rounded-sm shadow-none">
-            <div className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-wider mb-1">
-              Global Velocity
+              <div className="grid grid-cols-2 gap-4 border-t border-graphite-stroke/40 pt-3 mt-1 font-mono text-[10px]">
+                <div>
+                  <span className="text-on-surface-variant/40 block text-[8px] uppercase">Valuation</span>
+                  <span className="text-white font-bold">${unicorn.valuation}M</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-on-surface-variant/40 block text-[8px] uppercase">Total Funding</span>
+                  <span className="text-white font-bold">${unicorn.funding}M</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-mono text-[16px] font-bold text-white">4.82x</span>
-              <span className="material-symbols-outlined text-primary text-sm">north_east</span>
-            </div>
-          </div>
-          <div className="bg-surface-container-low border border-graphite-stroke p-3 rounded-sm shadow-none">
-            <div className="font-mono text-[9px] text-on-surface-variant/50 uppercase tracking-wider mb-1">
-              Entropy Index
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-mono text-[16px] font-bold text-white">0.12</span>
-              <span className="material-symbols-outlined text-tertiary text-sm">south_east</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Console status log terminal output */}
-        <div className="bg-surface-container-lowest border border-graphite-stroke rounded-sm p-3.5 font-mono text-[9px] text-on-surface-variant/50 flex flex-col gap-2 shadow-none">
-          <div className="flex justify-between items-center border-b border-graphite-stroke/40 pb-1.5">
-            <span className="text-primary font-bold">SYSTEM_STATUS: NOMINAL</span>
-            <span>SYS_SYS_SYS</span>
-          </div>
-          <div className="space-y-1 text-[8px] leading-relaxed">
-            <p>&gt; INDEXING GITHUB GROWTH activity... [100% OK]</p>
-            <p>&gt; CORRELATING HACKERNEWS STORIES... [OK]</p>
-            <p>&gt; MAPPING GOOGLE TRENDS ACCELERATION... [OK]</p>
-            <p>&gt; MOMENTUM PEAK DETECTED: {topDeltaStartup?.name || "NONE"}</p>
-            <p className="text-primary animate-pulse">&gt; MONITORING FOR NEW SIGNS [15 ACTIVE]...</p>
-          </div>
+          ))}
         </div>
       </section>
     </div>
