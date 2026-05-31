@@ -1,0 +1,66 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Startup {
+  id               String           @id @default(uuid())
+  name             String
+  description      String
+  logoUrl          String?
+  sector           String
+  stage            String           // e.g. "SEED", "SERIES A", "SERIES B"
+  valuation        Float            // In millions, e.g. 420.0
+  funding          Float            // In millions, e.g. 68.5
+  website          String
+  location         String           // e.g. "San Francisco, CA"
+  founders         Json             // Array of founder objects or string names
+  githubStars      Int              @default(0)
+  githubStarsWk    Int              @default(0)
+  hnMentionsWk     Int              @default(0)
+  productHuntRank  Int              @default(0)
+  trendsScore      Float            @default(0.0)
+  momentumScore    Float            @default(0.0) // 0-100
+  momentumStatus   String           // "STRONG", "STABLE", "DECAY", "NEUTRAL"
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  signals          Signal[]
+  savedBy          SavedStartup[]
+  riskAssessment   RiskAssessment?
+}
+
+model Signal {
+  id          String   @id @default(uuid())
+  startupId   String
+  startup     Startup  @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  source      String   // "GITHUB", "HN", "GOOGLE_TRENDS", "PRODUCT_HUNT", "YC"
+  title       String   // e.g. "GitHub repository star velocity +400%"
+  description String
+  score       Float
+  timestamp   DateTime @default(now())
+}
+
+model SavedStartup {
+  id        String   @id @default(uuid())
+  startupId String
+  startup   Startup  @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  savedAt   DateTime @default(now())
+
+  @@unique([startupId])
+}
+
+model RiskAssessment {
+  id                 String   @id @default(uuid())
+  startupId          String   @unique
+  startup            Startup  @relation(fields: [startupId], references: [id], onDelete: Cascade)
+  protocolRobustness Float    @default(0.0) // 0-100
+  liquidityCrunch    String?  // null if fine, else details of risk
+  regulatoryPivot    String?
+  ipOverlapAlert     String?
+  auditedBy          String?  // e.g. "Trail of Bits"
+  auditDate          String?
+}
