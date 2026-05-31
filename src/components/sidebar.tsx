@@ -7,9 +7,11 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const menuItems = [
-    { name: "Terminal", icon: "terminal", href: "/dashboard", description: "Venture Terminal" },
-    { name: "Emerging", icon: "analytics", href: "/emerging", description: "Emerging Signals" },
-    { name: "Unicorns", icon: "hub", href: "/unicorns", description: "Potential Unicorns" },
+    { name: "Dashboard", icon: "terminal", href: "/dashboard", description: "Venture Leaderboard" },
+    { name: "Emerging Startups", icon: "analytics", href: "/emerging", description: "Early Momentum Feed" },
+    { name: "Hidden Gems", icon: "diamond", href: "/hidden-gems", description: "Under-the-radar Signals" },
+    { name: "Future Unicorns", icon: "hub", href: "/unicorns", description: "Growth Acceleration Cohorts" },
+    { name: "Time Machine", icon: "history", href: "/time-machine", description: "Historical Backtesting" },
   ];
 
   return (
